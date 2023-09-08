@@ -1,0 +1,16 @@
+//her ligger tipsene
+
+ng g m moduleName
+
+choose module reference at component creation against multiple alternative modules : ng g c auth/components/changePassword --module=auth
+
+create a module with routing : ng g m user --routing --module=app
+
+component under already created module: ng g c user/components/add-book
+
+ng add @angular/material 
+
+create component by material: ng generate @angular/material:address-form <component-name>
+
+update app: https://update.angular.io/?v=15.0-16.0
+update app 12 to 13: npx @angular/cli@13 update @angular/core@13 @angular/cli13
