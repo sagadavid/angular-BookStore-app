@@ -7,9 +7,10 @@ import { AuthComponent } from './commons/auth/auth.component';
 import { AuthModule } from './commons/auth/auth.module';
 import { UserComponent } from './user/user.component';
 import { BooksModule } from './books/books.module';
+import { HomeComponent } from './commons/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'about-us', pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'how-it-works', component: HowItWorksComponent },
   {

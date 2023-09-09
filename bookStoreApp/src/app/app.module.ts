@@ -7,23 +7,20 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatIconModule } from '@angular/material/icon';
-// import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './commons/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, AboutUsComponent, HowItWorksComponent],
+  declarations: [
+    AppComponent,
+    AboutUsComponent,
+    HowItWorksComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
-    // AuthModule,
-    // UserModule,
-    // PublicModule,
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // MatToolbarModule,
-    // MatIconModule,
-    // MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
