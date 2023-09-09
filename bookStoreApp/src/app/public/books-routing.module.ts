@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllBooksComponent } from './components/all-books/all-books.component';
-import { PublicComponent } from './public.component';
+import { BooksComponent } from './books.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';

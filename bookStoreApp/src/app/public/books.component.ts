@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-public',
-  templateUrl: './public.component.html',
-  styleUrls: ['./public.component.css'],
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.css'],
 })
-export class PublicComponent implements OnInit {
+export class BooksComponent implements OnInit {
   bookId: number = 13;
   authorId: number = 2;
 

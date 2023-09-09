@@ -6,7 +6,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
 import { UserComponent } from './user/user.component';
-import { PublicModule } from './public/public.module';
+import { BooksModule } from './public/books.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about-us', pathMatch: 'full' },
@@ -23,10 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((x) => x.UserModule),
   },
   {
-    path: 'public',
-    component: PublicModule,
+    path: 'books',
+    component: BooksModule,
     loadChildren: () =>
-      import('./public/public.module').then((x) => x.PublicModule),
+      import('./public/books.module').then((x) => x.BooksModule),
   },
   { path: '**', component: NotFoundComponent },
 ];
