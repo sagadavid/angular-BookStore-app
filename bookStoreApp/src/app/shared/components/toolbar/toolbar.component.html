@@ -1,15 +1,13 @@
-<!-- <p>toolbar works!</p> -->
+<p>toolbar works!</p>
 <p>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Books Store</span>
+    <span>Books Store App</span>
     <span class="spacer"></span>
-  <button mat-button routerLink="books">All Books</button>
+     <button mat-icon-button routerLink="/"><mat-icon>home</mat-icon></button>
+  <button mat-button  routerLink="allbooks">All Books</button>
   <span class="spacer"></span>
-  <button mat-button routerLink="auth/login">Logge in</button>
-  <button mat-button routerLink="auth/signup">Sign up</button>
-  <button mat-icon-button routerLink="/" ><mat-icon>home</mat-icon></button>
+  <button mat-button routerLink="login">LogIn</button>
+  <button mat-button routerLink="signup">SignUp</button>
     </mat-toolbar>
 </p>
+

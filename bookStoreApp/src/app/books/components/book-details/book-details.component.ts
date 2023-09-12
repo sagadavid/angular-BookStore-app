@@ -13,10 +13,7 @@ export class BookDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.route);
-    //lets see what value parameters are obtained by activatedroute
     this.route.params.subscribe((param) => {
-      console.log(param);
       this.bookId = param['bookId'];
     });
   }
