@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BookModel } from '../models/book.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', //by this, already available across application level
 })
 export class BookService {
   constructor() {}
