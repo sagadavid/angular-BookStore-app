@@ -6,7 +6,7 @@ import { BookService } from '../../services/book.service';
   selector: 'app-allbooks',
   templateUrl: './allbooks.component.html',
   styleUrls: ['./allbooks.component.css'],
-  providers: [BookService], //essential for service injection
+  // providers: [BookService], //essential for service injection
 })
 export class AllBooksComponent implements OnInit {
   public books: BookModel[] = [];
