@@ -8,7 +8,7 @@ import { __param } from 'tslib';
   styleUrls: ['./book-details.component.css'],
 })
 export class BookDetailsComponent implements OnInit {
-  public bookId: number = 0;
+  public bookId: number = 1;
 
   constructor(private route: ActivatedRoute) {}
 
