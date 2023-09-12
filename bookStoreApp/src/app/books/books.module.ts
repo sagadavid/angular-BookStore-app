@@ -4,11 +4,10 @@ import { AllBooksComponent } from './components/allbooks/allbooks.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { BooksComponent } from './books.component';
 import { BooksRoutingModule } from './books-routing.module';
-// import { BookService } from './services/book.service';
+import { SharedModule } from '../shared/shared.module'; //we need matcardmodule capabilities of shared module
 
 @NgModule({
   declarations: [AllBooksComponent, BookDetailsComponent, BooksComponent],
-  imports: [CommonModule, BooksRoutingModule],
-  // providers: [BookService],
+  imports: [CommonModule, BooksRoutingModule, SharedModule],
 })
 export class BooksModule {}
