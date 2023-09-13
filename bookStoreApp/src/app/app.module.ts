@@ -7,10 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './commons/home/home.component';
-import { CounterService } from './shared/services/counter.service';
-import { Counter2Service } from './shared/services/counter2.service';
-import { DependancyService } from './shared/services/dependency.service';
 import { TestService } from './shared/services/test.service';
+import { CounterFactory } from './shared/services/counter.factory';
 
 @NgModule({
   declarations: [
@@ -26,14 +24,8 @@ import { TestService } from './shared/services/test.service';
     BrowserAnimationsModule,
   ],
   providers: [
-    {
-      //if test service is false instantiate counter2service else counterservice
-      provide: CounterService,
-      useFactory: (testService: TestService) =>
-        testService.status ? new CounterService() : new Counter2Service(),
-      deps: [TestService], //dependancy of useFactory
-    },
-    TestService, //refere it among a providers also
+    CounterFactory, //useFactory from another file
+    TestService, //needen in counter factory, refere it among a providers also
     {
       provide: 'appTitleToken',
       useValue: {
