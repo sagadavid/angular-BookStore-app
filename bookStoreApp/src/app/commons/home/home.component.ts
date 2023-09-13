@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CounterService } from 'src/app/shared/services/counter.service';
 
 @Component({
@@ -7,7 +7,11 @@ import { CounterService } from 'src/app/shared/services/counter.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(public countrService: CounterService) {}
+  constructor(
+    public countrService: CounterService,
+    //inject a new service as useValue of providers
+    @Inject('appTitleToken') public titleFromToken: string
+  ) {}
 
   public increase(): void {
     this.countrService.incCount();

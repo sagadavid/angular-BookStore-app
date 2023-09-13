@@ -27,6 +27,10 @@ import { DependancyService } from './shared/services/dependency.service';
   providers: [
     { provide: Counter2Service, useExisting: CounterService },
     CounterService,
+    {
+      provide: 'appTitleToken',
+      useValue: 'this is value of the corresponding token, apptitletoken',
+    },
   ],
   bootstrap: [AppComponent],
 })
