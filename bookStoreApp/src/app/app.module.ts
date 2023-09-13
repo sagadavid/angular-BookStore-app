@@ -25,7 +25,7 @@ import { DependancyService } from './shared/services/dependency.service';
     BrowserAnimationsModule,
   ],
   providers: [
-    { provide: CounterService, useClass: Counter2Service },
+    { provide: CounterService, useExisting: Counter2Service },
     DependancyService,
   ],
   bootstrap: [AppComponent],
