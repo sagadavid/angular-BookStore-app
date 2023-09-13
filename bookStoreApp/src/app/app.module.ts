@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './commons/home/home.component';
 import { CounterService } from './shared/services/counter.service';
+import { Counter2Service } from './shared/services/counter2.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CounterService } from './shared/services/counter.service';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [CounterService],
+  providers: [{ provide: CounterService, useClass: Counter2Service }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
