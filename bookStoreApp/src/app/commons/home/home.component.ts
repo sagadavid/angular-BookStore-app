@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(
     public countrService: CounterService,
     //inject a new service as useValue of providers
-    @Inject('appTitleToken') public titleFromToken: string
+    @Inject('appTitleToken') public titleFromToken: any
   ) {}
 
   public increase(): void {

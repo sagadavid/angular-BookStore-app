@@ -29,7 +29,10 @@ import { DependancyService } from './shared/services/dependency.service';
     CounterService,
     {
       provide: 'appTitleToken',
-      useValue: 'this is value of the corresponding token, apptitletoken',
+      useValue: {
+        title: 'title from useValue as object/any',
+        description: 'description from useValue',
+      },
     },
   ],
   bootstrap: [AppComponent],
