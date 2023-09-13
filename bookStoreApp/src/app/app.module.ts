@@ -10,6 +10,7 @@ import { HomeComponent } from './commons/home/home.component';
 import { CounterService } from './shared/services/counter.service';
 import { Counter2Service } from './shared/services/counter2.service';
 import { DependancyService } from './shared/services/dependency.service';
+import { TestService } from './shared/services/test.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,14 @@ import { DependancyService } from './shared/services/dependency.service';
     BrowserAnimationsModule,
   ],
   providers: [
-    { provide: CounterService, useFactory: () => new CounterService() }, //same as just using: Counterservice,
+    {
+      //if test service is false instantiate counter2service else counterservice
+      provide: CounterService,
+      useFactory: (testService: TestService) =>
+        testService.status ? new CounterService() : new Counter2Service(),
+      deps: [TestService], //dependancy of useFactory
+    },
+    TestService, //refere it among a providers also
     {
       provide: 'appTitleToken',
       useValue: {
