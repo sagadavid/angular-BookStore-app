@@ -4,7 +4,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'books', component: AllBooksComponent },
+  { path: '', component: AllBooksComponent },
   {
     path: ':bookId',
     component: BookDetailsComponent,

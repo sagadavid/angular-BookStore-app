@@ -18,3 +18,8 @@ update app 12 to 13: npx @angular/cli@13 update @angular/core@13 @angular/cli13
 Angular Providers: 
 https://chat.openai.com/share/820e0920-14fc-4843-8e3c-4b9084860ccb
 In Angular, providers are a crucial concept related to dependency injection (DI). Dependency injection is a design pattern that helps manage the creation and distribution of dependencies (services, objects, etc.) within an application. Providers are responsible for creating instances of services and making them available for injection into components, directives, and other parts of your Angular application.
+
+ProvidedIn any doesnt work:
+Q:angular @injectable providedIn any, but still acting like @injectable providedIn root.. i mean i use one service in two components. i want to keep results of service separate which is a simple counter. even i providedin any, service updates the counter in both componenets.
+A:Check the Module Setup: Ensure that you have the service provided correctly in the respective modules. If you want separate instances for each component, make sure you're providing the service in the component's module, not in a shared module or the root module.
+--yes, shared module had booksroutignmodule, deleted, problem solved !
