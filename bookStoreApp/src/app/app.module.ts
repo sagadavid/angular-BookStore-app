@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './commons/home/home.component';
 import { CounterService } from './shared/services/counter.service';
 import { Counter2Service } from './shared/services/counter2.service';
+import { DependancyService } from './shared/services/dependency.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { Counter2Service } from './shared/services/counter2.service';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: CounterService, useClass: Counter2Service }],
+  providers: [
+    { provide: CounterService, useClass: Counter2Service },
+    DependancyService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
