@@ -7,7 +7,7 @@ import { BookModel } from '../../books/models/book.model';
 export class BookService {
   constructor() {}
 
-  public getBooks(): BookModel[] {
+  public getBooks(): any[] {
     return [
       {
         id: 1,
