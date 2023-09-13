@@ -25,8 +25,7 @@ import { DependancyService } from './shared/services/dependency.service';
     BrowserAnimationsModule,
   ],
   providers: [
-    { provide: Counter2Service, useExisting: CounterService },
-    CounterService,
+    { provide: CounterService, useFactory: () => new CounterService() }, //same as just using: Counterservice,
     {
       provide: 'appTitleToken',
       useValue: {
