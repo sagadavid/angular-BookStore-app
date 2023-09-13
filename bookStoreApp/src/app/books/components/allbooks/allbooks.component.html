@@ -1,8 +1,11 @@
 <p>allbooks works!</p>
-<h2>Books</h2>
 <button (click)="increase()"> counter ++</button>
 <button (click)="decrease()"> counter --</button>
 <p>Counter={{countr2Service.counter}}</p>
+
+<h2>Books</h2>
+<p>{{pagetitle}}</p>
+
 <div class="container">
 <mat-card class="book-card" *ngFor="let book of books">
   <mat-card-header>

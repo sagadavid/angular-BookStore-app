@@ -35,5 +35,16 @@ export class AllBooksComponent implements OnInit {
       bokModel.price = b.price;
       this.books.push(bokModel);
     });
+    this.pagetitle = 'ALL WE HAVE IN THE STORE : ';
+  }
+
+  //getter setter in component
+  private _pagetitle: string;
+
+  public set pagetitle(pagetitle: string) {
+    this._pagetitle = pagetitle;
+  }
+  public get pagetitle() {
+    return this._pagetitle;
   }
 }
