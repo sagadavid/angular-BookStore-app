@@ -26,7 +26,7 @@ import { DependancyService } from './shared/services/dependency.service';
   ],
   providers: [
     { provide: CounterService, useExisting: Counter2Service },
-    DependancyService,
+    Counter2Service,
   ],
   bootstrap: [AppComponent],
 })
