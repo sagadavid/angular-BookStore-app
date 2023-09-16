@@ -7,6 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AuthorsComponent implements OnInit {
   @Input() valueInput: string; //use it either in ts or html file
+  @Input() dinamicInput: number;
+  @Input() boolInput: boolean;
+
   constructor() {}
+
   ngOnInit(): void {}
 }

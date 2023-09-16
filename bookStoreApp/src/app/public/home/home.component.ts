@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     //inject a new service as useValue of providers
     @Inject('appTitleToken') public titleFromToken: any
   ) {}
-
+  valueInput = 'value from home.ts not home.html';
   public increase(): void {
     this.countrService.incCount();
   }

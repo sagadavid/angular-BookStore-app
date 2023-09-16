@@ -5,4 +5,4 @@
 <p>useValue form injected service= {{titleFromToken.title}} </p>
 <p>description form injected service= {{titleFromToken.description}} </p>
 <h2>authors from shared module as child:</h2>
-<app-authors [valueInput]="'data sent from parent html'"></app-authors>
+<app-authors [valueInput]="valueInput" [dinamicInput]="countrService.counter" [boolInput]="true"></app-authors>
