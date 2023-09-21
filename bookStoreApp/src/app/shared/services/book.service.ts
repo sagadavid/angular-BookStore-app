@@ -41,4 +41,29 @@ export class BookService {
       },
     ];
   }
+
+  public getRecentBooks(): any[] {
+    return [
+      {
+        id: 2,
+        title: 'Lord of the Rings',
+        totalPages: 800,
+        author: 'Tolkien',
+        price: {
+          currency: 'Nok',
+          value: 1200,
+        },
+      },
+      {
+        id: 3,
+        title: 'Stay Behind',
+        totalPages: 400,
+        author: 'Hargaard',
+        price: {
+          currency: 'Nok',
+          value: 1000,
+        },
+      },
+    ];
+  }
 }
