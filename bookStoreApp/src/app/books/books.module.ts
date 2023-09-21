@@ -5,10 +5,11 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BooksComponent } from './books.component';
 import { BooksRoutingModule } from './books-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { RecentsBooksComponent } from './components/recents-books/recents-books.component'; //we need matcardmodule capabilities of shared module
+import { RecentsBooksComponent } from './components/recents-books/recents-books.component';
+import { BookCarComponent } from './components/book-car/book-car.component'; //we need matcardmodule capabilities of shared module
 
 @NgModule({
-  declarations: [AllBooksComponent, BookDetailsComponent, BooksComponent, RecentsBooksComponent],
+  declarations: [AllBooksComponent, BookDetailsComponent, BooksComponent, RecentsBooksComponent, BookCarComponent],
   imports: [CommonModule, BooksRoutingModule, SharedModule],
 })
 export class BooksModule {}
