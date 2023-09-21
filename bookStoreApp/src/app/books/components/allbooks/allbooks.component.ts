@@ -25,8 +25,8 @@ export class AllBooksComponent implements OnInit {
   ngOnInit(): void {
     //to be able to dynamically work on it, hardcoded data should fit in BookModel -Class-.. so that we can use getter setter on it.
 
-    const allBooks = this.bookService.getBooks();
-    allBooks.forEach((b) => {
+    const alleBooks = this.bookService.getBooks();
+    alleBooks.forEach((b) => {
       var bokModel = new BookModel();
       bokModel.id = b.id;
       bokModel.skribent = b.author;
