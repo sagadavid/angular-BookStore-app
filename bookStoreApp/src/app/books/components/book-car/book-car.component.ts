@@ -7,16 +7,16 @@ import { BookModel } from '../../models/book.model';
   styleUrls: ['./book-car.component.css'],
 })
 export class BookCarComponent {
-  private _books: BookModel[];
   //@Input('alleBooks') books: BookModel[];
+  private _books: BookModel[];
   @Input('alleBooks')
   get books(): BookModel[] {
     return this._books;
   }
   set books(books: BookModel[]) {
     books.map((x) => {
-      x.title = 'have a look....' + x.title;
-      x.skribent = 'Nobel winner ' + x.skribent;
+      x.title = 'titt pa.. ' + x.title;
+      x.author = 'skribent ' + x.author;
     });
     this._books = books;
   }

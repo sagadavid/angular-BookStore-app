@@ -7,10 +7,10 @@ export class BookModel {
   private _author: string;
   public price: PriceModel;
 
-  public set skribent(authorName: string) {
-    this._author = ' skribent ' + authorName;
+  public set author(authorName: string) {
+    this._author = authorName;
   }
-  public get skribent() {
+  public get author() {
     return this._author;
   }
 }

@@ -29,7 +29,7 @@ export class AllBooksComponent implements OnInit {
     alleBooks.forEach((b) => {
       var bokModel = new BookModel();
       bokModel.id = b.id;
-      bokModel.skribent = b.author;
+      bokModel.author = b.author;
       bokModel.title = b.title;
       bokModel.totalPages = b.totalPages;
       bokModel.price = b.price;
