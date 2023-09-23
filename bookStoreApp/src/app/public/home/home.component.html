@@ -1,13 +1,15 @@
 <p>home works!</p>
-<button (click)="increase()"> counter ++</button>
+<!-- <button (click)="increase()"> counter ++</button>
 <button (click)="decrease()"> counter --</button>
 <p>Counter= {{countrService.counter}}</p>
 <p>useValue form injected service= {{titleFromToken.title}} </p>
 <p>description form injected service= {{titleFromToken.description}} </p>
-<h2>authors from shared module as child:</h2>
-<app-authors
+<h2>authors from shared module as child:</h2> -->
+<!-- <app-authors
 [valueInput]="valueInput"
 [dinamicInput]="countrService.counter"
 [boolInput]="true"
 [modifyB4UseData]="countrService.counter"
-></app-authors>
+></app-authors> -->
+<button (click)="authorTempRef.setData2TemplateRef(234)">pass data to child</button>
+<app-authors #authorTempRef ></app-authors>
