@@ -7,9 +7,17 @@ import { BookModel } from '../../models/book.model';
   styleUrls: ['./book-car.component.css'],
 })
 export class BookCarComponent {
-  //expect books from parent
-  //bookcar will share books-outlet to both all books and recents
-  //in book-car outlet, books will be fetched from recents or allbooks by definition in html and logic in component file
-  //here, alias used: parent should pass in allebooks property of allbook component not books property of book-car component
-  @Input('alleBooks') books: BookModel[];
+  private _books: BookModel[];
+  //@Input('alleBooks') books: BookModel[];
+  @Input('alleBooks')
+  get books(): BookModel[] {
+    return this._books;
+  }
+  set books(books: BookModel[]) {
+    books.map((x) => {
+      x.title = 'have a look....' + x.title;
+      x.skribent = 'Nobel winner ' + x.skribent;
+    });
+    this._books = books;
+  }
 }
