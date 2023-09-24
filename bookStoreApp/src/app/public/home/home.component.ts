@@ -1,4 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 import { CounterService } from 'src/app/shared/services/counter.service';
 
 @Component({
@@ -6,13 +13,17 @@ import { CounterService } from 'src/app/shared/services/counter.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild(AuthorsComponent) private childAuthor: AuthorsComponent;
+
   constructor(
     public countrService: CounterService,
     //inject a new service as useValue of providers
     @Inject('appTitleToken') public titleFromToken: any
   ) {}
+
   valueInput = 'value from home.ts not home.html';
+
   public increase(): void {
     this.countrService.incCount();
   }
@@ -21,4 +32,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.childAuthor.setData2TemplateRef(345);
+    }, 0);
+  }
 }
