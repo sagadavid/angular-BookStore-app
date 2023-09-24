@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { TestService } from '../../services/test.service';
 
 @Component({
   selector: 'app-authors',
@@ -11,13 +12,14 @@ export class AuthorsComponent implements OnInit {
     this.dataFrParent = value;
   }
 
-  @Output() data2Parent = new EventEmitter<string>();
+  // @Output() data2Parent = new EventEmitter<string>();
 
+  constructor(private passDataViaService: TestService) {}
   public pass2Parent(): void {
-    this.data2Parent.emit('message emits from child 2 parent');
+    // this.data2Parent.emit('message emits from child 2 parent');
+    this.passDataViaService.passData =
+      'passing data from child to parent via service';
   }
-
-  constructor() {}
 
   ngOnInit(): void {}
 }
