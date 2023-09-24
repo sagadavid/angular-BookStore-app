@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.childAuthor.setData2TemplateRef(345);
+      this.childAuthor.setData(345);
     }, 0);
   }
 }
