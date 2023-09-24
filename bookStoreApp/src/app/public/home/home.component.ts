@@ -14,7 +14,7 @@ import { CounterService } from 'src/app/shared/services/counter.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  @ViewChild(AuthorsComponent) private childAuthor: AuthorsComponent;
+  @ViewChild('authors') private childAuthor: AuthorsComponent;
 
   constructor(
     public countrService: CounterService,
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.childAuthor.setData(345);
+      this.childAuthor.setData(234);
     }, 0);
   }
 }
