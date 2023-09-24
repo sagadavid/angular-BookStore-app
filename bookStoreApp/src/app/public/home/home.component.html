@@ -1,4 +1,3 @@
-<p>home works!</p>
-<p>data fr child 2 parent via service: {{passDataViaService.passData}}</p>
-<!-- <app-authors (data2Parent)="receiveFrChild($event)"></app-authors> -->
-<app-authors></app-authors>
+<p>home- parent works!</p>
+<button (click)="upCounter()">up-count-at-Home</button>
+<app-authors [passedData]="upCountHome" [passedBool]="homeBool"></app-authors>

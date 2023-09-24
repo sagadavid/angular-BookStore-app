@@ -7,10 +7,12 @@ import { TestService } from 'src/app/shared/services/test.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(public passDataViaService: TestService) {}
+  constructor() {}
   ngOnInit(): void {}
-
-  public receiveFrChild($event: any): void {
-    console.log($event);
+  public upCountHome: number = 0;
+  public homeBool: boolean = false;
+  public upCounter() {
+    this.upCountHome++;
+    this.homeBool = !this.homeBool;
   }
 }
