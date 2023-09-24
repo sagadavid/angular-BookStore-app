@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-authors',
@@ -9,6 +9,12 @@ export class AuthorsComponent implements OnInit {
   public dataFrParent: number;
   public setData(value: number): void {
     this.dataFrParent = value;
+  }
+
+  @Output() data2Parent = new EventEmitter<string>();
+
+  public pass2Parent(): void {
+    this.data2Parent.emit('message emits from child 2 parent');
   }
 
   constructor() {}
