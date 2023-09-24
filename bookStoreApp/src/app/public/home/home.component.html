@@ -1,3 +1,5 @@
 <p>home works!</p>
-
+<button (click)="increase()" >count up</button>
+<button (click)="decrease()" mat-raised-button #decrButton>count down</button>
+<p>count: {{countrService.counter}}</p>
 <app-authors #authors ></app-authors>

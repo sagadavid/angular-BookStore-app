@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 import { CounterService } from 'src/app/shared/services/counter.service';
 
@@ -15,6 +16,7 @@ import { CounterService } from 'src/app/shared/services/counter.service';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('authors') private childAuthor: AuthorsComponent;
+  @ViewChild('decrButton') private decrButton: MatButton;
 
   constructor(
     public countrService: CounterService,
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.childAuthor.setData(234);
+      this.decrButton.color = 'warn';
     }, 0);
   }
 }
