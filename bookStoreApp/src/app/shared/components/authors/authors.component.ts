@@ -24,14 +24,12 @@ export class AuthorsComponent
   @Input() passedData: number;
   @Input() passedBool: boolean;
   @Input() modelledAuthor: AuthorModel;
-  //child in a child component
   @ContentChild(AuthorAddressComponent)
   contChildAuthorAdrsKomp: AuthorAddressComponent;
 
   constructor() {
     // console.log('child constructor');
   }
-  //see dynamic data of content init and checked
   ngAfterContentInit(): void {
     console.log('after content init: ' + this.contChildAuthorAdrsKomp?.address);
   }
@@ -41,7 +39,6 @@ export class AuthorsComponent
     );
   }
   ngDoCheck(): void {
-    //now observe chang on browser console, get updated values by help of ngDoCheck
     // console.log(this.modelledAuthor);
   }
 
@@ -50,7 +47,6 @@ export class AuthorsComponent
   }
 
   ngOnInit(): void {
-    //constructor and ngOnInit runs only once, const runs first, onchanges second, oninit third(before dom)
     // console.log('child ngOnInit');
   }
 }
