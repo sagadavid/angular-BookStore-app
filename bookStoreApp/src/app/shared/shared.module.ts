@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { AuthorsComponent } from './components/authors/authors.component';
+import { AuthorAddressComponent } from './components/author-address/author-address.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,16 @@ import { AuthorsComponent } from './components/authors/authors.component';
     ToolbarComponent,
     FooterComponent,
     AuthorsComponent,
+    AuthorAddressComponent,
+    AuthorAddressComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule],
-  exports: [ToolbarComponent, FooterComponent, MatCardModule, AuthorsComponent], //others need to reach card module aswell
+  exports: [
+    ToolbarComponent,
+    FooterComponent,
+    MatCardModule,
+    AuthorsComponent,
+    AuthorAddressComponent,
+  ], //others need to reach card module aswell
 })
 export class SharedModule {}
