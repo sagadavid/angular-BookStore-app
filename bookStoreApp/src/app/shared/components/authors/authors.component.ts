@@ -13,7 +13,9 @@ import { TestService } from '../../services/test.service';
   styleUrls: ['./authors.component.css'],
 })
 export class AuthorsComponent implements OnInit, OnChanges {
-  constructor() {}
+  constructor() {
+    console.log('child constructor');
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -21,5 +23,8 @@ export class AuthorsComponent implements OnInit, OnChanges {
   @Input() passedData: number;
   @Input() passedBool: boolean;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //constructor and ngOnInit runs only once, const runs first, onchanges second, oninit third(before dom)
+    console.log('child ngOnInit');
+  }
 }
