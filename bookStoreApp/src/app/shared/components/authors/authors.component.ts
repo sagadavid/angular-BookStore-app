@@ -29,28 +29,28 @@ export class AuthorsComponent
   contChildAuthorAdrsKomp: AuthorAddressComponent;
 
   constructor() {
-    console.log('child constructor');
+    // console.log('child constructor');
   }
   //see dynamic data of content init and checked
   ngAfterContentInit(): void {
-    console.log('after content init' + this.contChildAuthorAdrsKomp?.address);
+    console.log('after content init: ' + this.contChildAuthorAdrsKomp?.address);
   }
   ngAfterContentChecked(): void {
     console.log(
-      'after content checked' + this.contChildAuthorAdrsKomp?.address
+      'after content checked: ' + this.contChildAuthorAdrsKomp?.address
     );
   }
   ngDoCheck(): void {
     //now observe chang on browser console, get updated values by help of ngDoCheck
-    console.log(this.modelledAuthor);
+    // console.log(this.modelledAuthor);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    // console.log(changes);
   }
 
   ngOnInit(): void {
     //constructor and ngOnInit runs only once, const runs first, onchanges second, oninit third(before dom)
-    console.log('child ngOnInit');
+    // console.log('child ngOnInit');
   }
 }

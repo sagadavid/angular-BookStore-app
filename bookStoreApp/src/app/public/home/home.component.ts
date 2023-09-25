@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   public forfatter: AuthorModel = { id: 22, name: 'dan brown' };
   public upCountHome: number = 0;
   public homeBool: boolean = false;
+  public homeAddress: string = 'potamac yard, cristal city, va, ';
 
   constructor() {}
 
@@ -23,5 +24,8 @@ export class HomeComponent implements OnInit {
     this.forfatter.id = this.upCountHome++;
     //an example of reference change-a new object create
     // this.forfatter = { id: this.upCountHome++, name: 'david saga' };
+    //afterinit fungerer engang etter docheck, derimot, afterchecked fungerer enda etter content forandret
+    //refresh page vs click button.
+    this.homeAddress = this.homeAddress + this.upCountHome;
   }
 }
