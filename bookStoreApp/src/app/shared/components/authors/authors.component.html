@@ -1,6 +1,11 @@
-<p>authors- child works!</p>
+<div class="child-component">
+  <p>authors- child works!</p>
 <p>data from parent: {{passedData}}</p>
 <p>boolean from parent: {{passedBool}}</p>
 <p>author data:<br>
 author id: {{modelledAuthor.id}}<br>
 author name: {{modelledAuthor.name}}</p>
+
+<ng-content #name></ng-content>
+</div>
+

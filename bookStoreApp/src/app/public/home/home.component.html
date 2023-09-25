@@ -3,4 +3,13 @@
 <app-authors
 [passedData]="upCountHome"
 [passedBool]="homeBool"
-[modelledAuthor]="forfatter"></app-authors>
+[modelledAuthor]="forfatter">
+<h1>this is called content: Dynamic data from parent (via ng-content) </h1>
+</app-authors>
+<hr>
+<app-authors
+[passedData]="upCountHome"
+[passedBool]="homeBool"
+[modelledAuthor]="forfatter">
+<button>dynamic button</button>
+</app-authors>
