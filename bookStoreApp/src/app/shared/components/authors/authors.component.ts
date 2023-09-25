@@ -26,6 +26,7 @@ export class AuthorsComponent
   @Input() modelledAuthor: AuthorModel;
   @ContentChild(AuthorAddressComponent)
   contChildAuthorAdrsKomp: AuthorAddressComponent;
+  public authorCount: number = 0;
 
   constructor() {
     // console.log('child constructor');
@@ -48,5 +49,9 @@ export class AuthorsComponent
 
   ngOnInit(): void {
     // console.log('child ngOnInit');
+  }
+
+  authorCounter(): void {
+    this.authorCount++;
   }
 }

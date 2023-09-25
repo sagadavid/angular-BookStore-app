@@ -1,10 +1,12 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 import { AuthorModel } from 'src/app/shared/model/author.model';
 import { TestService } from 'src/app/shared/services/test.service';
 
@@ -13,14 +15,20 @@ import { TestService } from 'src/app/shared/services/test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-  @ViewChild('btn2AfterView') btn2AV: ElementRef;
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
+  @ViewChild(AuthorsComponent) authorKomp: AuthorsComponent;
+  @ViewChild('btn2AfterView')
+  btn2AV: ElementRef;
   public forfatter: AuthorModel = { id: 22, name: 'dan brown' };
   public upCountHome: number = 0;
   public homeBool: boolean = false;
   public homeAddress: string = 'potamac yard, cristal city, va, ';
 
   constructor() {}
+  ngAfterViewChecked(): void {
+    //message from parent comp, change in child component, track the change after viewed.
+    console.log(this.authorKomp.authorCount);
+  }
   ngAfterViewInit(): void {
     console.log(this.btn2AV);
     this.btn2AV.nativeElement.innerHTML = 'button text updated after view init';
