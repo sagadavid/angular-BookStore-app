@@ -30,18 +30,18 @@ export class HomeComponent
 
   constructor() {}
   ngOnDestroy(): void {
-    console.log('home components destroy');
+    //console.log('home components destroy');
     //until killed, timer at home component will continue to count (initilized in oninit), no matter you navigate to another page (observe console after commenting clearInterval() method below). it needs to be destroyed.
     console.log('ondestroy called');
     clearInterval(this.time);
   }
   ngAfterViewChecked(): void {
     //message from parent comp, change in child component, track the change after viewed.
-    console.log(this.authorKomp.authorCount);
+    //console.log(this.authorKomp.authorCount);
   }
   ngAfterViewInit(): void {
-    console.log(this.btn2AV);
-    this.btn2AV.nativeElement.innerHTML = 'button text updated after view init';
+    //console.log(this.btn2AV);
+    //this.btn2AV.nativeElement.innerHTML = 'button text updated after view init';
   }
 
   ngOnInit(): void {
@@ -56,12 +56,12 @@ export class HomeComponent
 
     this.homeAddress = this.homeAddress + this.upCountHome;
     //cant get button/elementRef, button is called after view, not before init
-    console.log(this.btn2AV);
+    //console.log(this.btn2AV);
   }
 
   timer(): void {
-    setInterval(() => {
-      this.time = this.upCountHome++;
+    this.time = setInterval(() => {
+      this.upCountHome++;
       console.log(this.upCountHome);
     }, 1000);
   }
