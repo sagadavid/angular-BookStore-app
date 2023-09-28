@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -15,7 +16,9 @@ import { TestService } from 'src/app/shared/services/test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class HomeComponent
+  implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy
+{
   @ViewChild(AuthorsComponent) authorKomp: AuthorsComponent;
   @ViewChild('btn2AfterView')
   btn2AV: ElementRef;
@@ -23,8 +26,15 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public upCountHome: number = 0;
   public homeBool: boolean = false;
   public homeAddress: string = 'potamac yard, cristal city, va, ';
+  private time: any;
 
   constructor() {}
+  ngOnDestroy(): void {
+    console.log('home components destroy');
+    //until killed, timer at home component will continue to count (initilized in oninit), no matter you navigate to another page (observe console after commenting clearInterval() method below). it needs to be destroyed.
+    console.log('ondestroy called');
+    clearInterval(this.time);
+  }
   ngAfterViewChecked(): void {
     //message from parent comp, change in child component, track the change after viewed.
     console.log(this.authorKomp.authorCount);
@@ -34,7 +44,9 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.btn2AV.nativeElement.innerHTML = 'button text updated after view init';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.timer();
+  }
 
   public upCounter() {
     this.upCountHome++;
@@ -45,5 +57,12 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.homeAddress = this.homeAddress + this.upCountHome;
     //cant get button/elementRef, button is called after view, not before init
     console.log(this.btn2AV);
+  }
+
+  timer(): void {
+    setInterval(() => {
+      this.time = this.upCountHome++;
+      console.log(this.upCountHome);
+    }, 1000);
   }
 }

@@ -8,6 +8,7 @@ import {
   AfterContentInit,
   AfterContentChecked,
   ContentChild,
+  OnDestroy,
 } from '@angular/core';
 import { TestService } from '../../services/test.service';
 import { AuthorModel } from '../../model/author.model';
@@ -19,7 +20,13 @@ import { AuthorAddressComponent } from '../author-address/author-address.compone
   styleUrls: ['./authors.component.css'],
 })
 export class AuthorsComponent
-  implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    OnDestroy
 {
   @Input() passedData: number;
   @Input() passedBool: boolean;
@@ -30,6 +37,9 @@ export class AuthorsComponent
 
   constructor() {
     // console.log('child constructor');
+  }
+  ngOnDestroy(): void {
+    console.log('child author component destroys');
   }
   ngAfterContentInit(): void {
     console.log('after content init: ' + this.contChildAuthorAdrsKomp?.address);
