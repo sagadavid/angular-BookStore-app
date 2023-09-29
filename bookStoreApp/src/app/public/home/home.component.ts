@@ -45,7 +45,7 @@ export class HomeComponent
   }
 
   ngOnInit(): void {
-    this.timer();
+    //this.timer();
   }
 
   public upCounter() {

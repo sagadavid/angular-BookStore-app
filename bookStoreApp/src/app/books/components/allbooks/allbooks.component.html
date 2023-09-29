@@ -1,11 +1,11 @@
 <p>allbooks works!</p>
 
-<a [routerLink]="'recent'">Recent Books</a>
+<!-- <a [routerLink]="'recent'">Recent Books</a>
 <button (click)="increase()"> counter ++</button>
 <button (click)="decrease()"> counter --</button>
-<p>Counter={{countr2Service.counter}}</p>
+<p>Counter={{countr2Service.counter}}</p> -->
 
 <h2>Books</h2>
 <p>{{pagetitle}}</p>
-
+<button mat-raised-button color="primary" [routerLink]="'new'">add new book </button>
 <app-book-car [alleBooks]="books"></app-book-car>
