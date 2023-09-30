@@ -1,7 +1,9 @@
 <p>add-book under books works!</p>
-<form #myNgForm="ngForm">
-  <input type="text" name="first name" id="" ngModel><br>
-  <input type="text" name="last name" id="" ngModel><br>
-  <button>save the book </button>
+<form #myNgForm="ngForm" (ngSubmit)="saveBook(myNgForm.value)">
+  <input type="text" name="title" placeholder="title" ngModel><br><br>
+  <input type="text" name="author" placeholder="author"  ngModel><br><br>
+  <input type="number" name="pages" placeholder="pages"  ngModel><br><br>
+  <input type="number" name="price" placeholder="price"  ngModel><br><br>
+  <button type="submit">save the book </button>
 </form>
 <p>{{myNgForm.value |json}} </p>
