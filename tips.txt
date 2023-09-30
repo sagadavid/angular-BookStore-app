@@ -23,3 +23,10 @@ ProvidedIn any doesnt work:
 Q:angular @injectable providedIn any, but still acting like @injectable providedIn root.. i mean i use one service in two components. i want to keep results of service separate which is a simple counter. even i providedin any, service updates the counter in both componenets.
 A:Check the Module Setup: Ensure that you have the service provided correctly in the respective modules. If you want separate instances for each component, make sure you're providing the service in the component's module, not in a shared module or the root module.
 --yes, shared module had booksroutignmodule, deleted, problem solved !
+
+error:
+          The error message Cannot redefine property: File indicates that Babel is trying to redefine the File object, but this is not allowed. This error can occur when using Angular Material with Node.js 20.6.0 or higher.
+
+          There are a few possible solutions to this problem:
+
+          Downgrade to Node.js 20.5.0 or lower. This is a temporary solution, as it is expected that the fix for this issue will be released in a future version of Node.js.

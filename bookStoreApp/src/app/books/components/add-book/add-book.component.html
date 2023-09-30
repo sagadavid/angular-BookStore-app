@@ -1,9 +1,39 @@
 <p>add-book under books works!</p>
-<form #myNgForm="ngForm" (ngSubmit)="saveBook(myNgForm.value)">
-  <input type="text" name="title" placeholder="title" ngModel><br><br>
-  <input type="text" name="author" placeholder="author"  ngModel><br><br>
-  <input type="number" name="pages" placeholder="pages"  ngModel><br><br>
-  <input type="number" name="price" placeholder="price"  ngModel><br><br>
-  <button type="submit">save the book </button>
+<form #myNgForm="ngForm" (ngSubmit)="saveBook(myNgForm.value)" class="add-book-form">
+    <mat-form-field appearance="fill">
+      <!-- <mat-label>Title</mat-label> -->
+    <input matInput name="title" placeholder="title" ngModel>
+    <mat-icon matSuffix><span class="material-symbols-outlined">
+auto_stories
+</span></mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+          <!-- <mat-label>Author</mat-label> -->
+    <input matInput name="author" placeholder="author"  ngModel>
+    <mat-icon matSuffix><span class="material-symbols-outlined">
+settings_accessibility
+</span></mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+          <!-- <mat-label>Pages</mat-label> -->
+    <input matInput name="pages" placeholder="pages"  ngModel>
+    <mat-icon matSuffix><span class="material-symbols-outlined">
+pin
+</span></mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+          <!-- <mat-label>Price</mat-label> -->
+    <input matInput name="price" placeholder="price"  ngModel>
+    <mat-icon matSuffix>
+<span class="material-symbols-outlined">
+attach_money
+</span>
+    </mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">save the book </button>
 </form>
 <p>{{myNgForm.value |json}} </p>

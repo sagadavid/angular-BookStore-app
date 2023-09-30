@@ -25,6 +25,7 @@ import { AuthorAddressComponent } from './components/author-address/author-addre
     MatCardModule,
     AuthorsComponent,
     AuthorAddressComponent,
+    MaterialModule,
   ], //others need to reach card module aswell
 })
 export class SharedModule {}

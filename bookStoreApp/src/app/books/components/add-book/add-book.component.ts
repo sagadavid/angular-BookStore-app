@@ -20,7 +20,7 @@ export class AddBookComponent implements OnInit {
     book2save.id = value.id;
     book2save.author = value.author;
     book2save.title = value.title;
-    book2save.price = value.price;
+    book2save.price = { currency: '$', value: value.price };
     book2save.totalPages = value.pages;
 
     this.bookService.addBook(book2save);
