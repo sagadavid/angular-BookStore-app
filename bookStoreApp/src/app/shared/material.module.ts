@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -15,10 +17,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule,
+    MatDatepickerModule,
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}
