@@ -33,6 +33,7 @@ export class AllBooksComponent implements OnInit {
       bokModel.title = b.title;
       bokModel.totalPages = b.totalPages;
       bokModel.price = b.price;
+      bokModel.isPublished = b.isPublished;
       this.books.push(bokModel);
     });
     this.pagetitle = 'ALL WE HAVE IN THE STORE : ';
