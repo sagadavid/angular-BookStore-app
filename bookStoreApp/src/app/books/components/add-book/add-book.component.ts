@@ -14,7 +14,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {}
 
   saveBook(value: any): void {
-    console.log(value);
+    console.log('at savebook/addbook comp. ' + value.isPublished);
     //now add book is available in service, then use it
     const book2save: BookModel = new BookModel();
     book2save.id = value.id;
@@ -22,6 +22,7 @@ export class AddBookComponent implements OnInit {
     book2save.title = value.title;
     book2save.price = { currency: '$', value: value.price };
     book2save.totalPages = value.pages;
+    book2save.isPublished = value.isPublished;
 
     this.bookService.addBook(book2save);
   }

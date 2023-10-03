@@ -26,7 +26,12 @@ pin
   </mat-form-field>
     <mat-form-field appearance="fill">
           <!-- <mat-label>Price</mat-label> -->
-    <input matInput name="price" placeholder="price"  ngModel>
+    <!-- <input matInput name="price" placeholder="price"  ngModel> -->
+    <mat-select name="price" placeholder="price"  ngModel>
+    <mat-option value="10">$10</mat-option>
+    <mat-option value="15">$15</mat-option>
+    <mat-option value="20">$20</mat-option>
+  </mat-select>
     <mat-icon matSuffix>
 <span class="material-symbols-outlined">
 attach_money
@@ -34,6 +39,8 @@ attach_money
     </mat-icon>
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
+   <mat-slide-toggle class="slide" name="isPublished" ngModel>tag the book as "Published!"</mat-slide-toggle>
   <button type="submit" mat-raised-button color="primary">save the book </button>
+
 </form>
 <p>{{myNgForm.value |json}} </p>

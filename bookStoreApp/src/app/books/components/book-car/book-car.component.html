@@ -16,6 +16,8 @@
      <p>
       Price:{{book.price.value +' '+ book.price.currency}}
     </p>
+    <p>is the book published? : {{book.isPublished ? 'Yes' : 'No'}}</p>
+     <p>is the book published? : {{book.isPublished | json}}</p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>Details</button>
