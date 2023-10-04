@@ -8,10 +8,17 @@ import { BookModel } from '../../models/book.model';
   styleUrls: ['./add-book.component.css'],
 })
 export class AddBookComponent implements OnInit {
+  public model42WayBinding: BookModel;
+
   //inject book service
   constructor(private bookService: BookService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //default values for template - two way binding
+    this.model42WayBinding = new BookModel();
+    this.model42WayBinding.title = 'Default title for the book';
+    this.model42WayBinding.totalPages = 345;
+  }
 
   saveBook(value: any): void {
     console.log('at savebook/addbook comp. ' + value.isPublished);

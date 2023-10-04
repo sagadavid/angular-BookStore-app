@@ -2,7 +2,8 @@
 <form #myNgForm="ngForm" (ngSubmit)="saveBook(myNgForm.value)" class="add-book-form">
     <mat-form-field appearance="fill">
       <!-- <mat-label>Title</mat-label> -->
-    <input matInput name="title" placeholder="title" ngModel>
+    <!-- <input matInput name="title" placeholder="title" ngModel> -->
+    <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
 </span></mat-icon>
@@ -18,7 +19,8 @@ settings_accessibility
   </mat-form-field>
     <mat-form-field appearance="fill">
           <!-- <mat-label>Pages</mat-label> -->
-    <input matInput name="pages" placeholder="pages"  ngModel>
+    <!-- <input matInput name="pages" placeholder="pages"  ngModel> -->
+    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 pin
 </span></mat-icon>
