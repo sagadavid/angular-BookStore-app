@@ -1,8 +1,6 @@
 <p>add-book under books works!</p>
-<form #myNgForm="ngForm" (ngSubmit)="saveBook(myNgForm.value)" class="add-book-form">
+<form #myNgForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
-      <!-- <mat-label>Title</mat-label> -->
-    <!-- <input matInput name="title" placeholder="title" ngModel> -->
     <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
@@ -10,29 +8,24 @@ auto_stories
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
-          <!-- <mat-label>Author</mat-label> -->
-    <input matInput name="author" placeholder="author"  ngModel>
+    <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 settings_accessibility
 </span></mat-icon>
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
-          <!-- <mat-label>Pages</mat-label> -->
-    <!-- <input matInput name="pages" placeholder="pages"  ngModel> -->
     <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 pin
 </span></mat-icon>
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
-    <mat-form-field appearance="fill">
-          <!-- <mat-label>Price</mat-label> -->
-    <!-- <input matInput name="price" placeholder="price"  ngModel> -->
-    <mat-select name="price" placeholder="price"  ngModel>
-    <mat-option value="10">$10</mat-option>
-    <mat-option value="15">$15</mat-option>
-    <mat-option value="20">$20</mat-option>
+  <mat-form-field appearance="fill">
+  <mat-select name="price" placeholder="Price" [(ngModel)]="model42WayBinding.price.value">
+    <mat-option *ngFor="let price of prices" [value]="price.value">
+      {{price.viewValue}}
+    </mat-option>
   </mat-select>
     <mat-icon matSuffix>
 <span class="material-symbols-outlined">
@@ -43,13 +36,12 @@ attach_money
   </mat-form-field>
 <mat-form-field>
   <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" name="publishedOn" ngModel>
-  <mat-hint>MM/DD/YYYY</mat-hint>
+  <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model42WayBinding.publishedOn">
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
-  <mat-slide-toggle class="slide" name="isPublished" ngModel>tag the book as "Published!"</mat-slide-toggle>
+  <mat-slide-toggle class="slide" name="isPublished" [(ngModel)]="model42WayBinding.isPublished">tag the book as "Published!"</mat-slide-toggle>
   <button type="submit" mat-raised-button color="primary">save the book </button>
 
 </form>
