@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from 'src/app/shared/services/book.service';
 import { BookModel } from '../../models/book.model';
 import { PriceModel } from '../../models/price.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-book',
@@ -15,6 +16,7 @@ export class AddBookComponent implements OnInit {
     { value: 3, viewValue: '300' },
   ];
   public model42WayBinding: BookModel;
+  @ViewChild('myNgForm') myForm: NgForm;
 
   //inject book service
   constructor(private bookService: BookService) {}
@@ -32,19 +34,13 @@ export class AddBookComponent implements OnInit {
   }
 
   saveBook(): void {
-    // console.log('at savebook/addbook comp. ' + value.isPublished);
-    // console.log('dat on addbok/saveBook()' + value.publishedOn);
-    // //now add book is available in service, then use it
-    // const book2save: BookModel = new BookModel();
-    // book2save.id = value.id;
-    // book2save.author = value.author;
-    // book2save.title = value.title;
-    // book2save.price = { currency: '$', value: value.price };
-    // book2save.totalPages = value.pages;
-    // book2save.isPublished = value.isPublished;
-    // book2save.publishedOn = value.publishedOn;
-    // this.bookService.addBook(book2save);
-    console.log(this.model42WayBinding);
-    this.bookService.addBook(this.model42WayBinding);
+    //dont rely on frontend validation.. check really valid to save "a filled form"
+    if (this.myForm.valid) {
+      console.log(this.model42WayBinding);
+      this.bookService.addBook(this.model42WayBinding);
+      alert('book saved, required fields are filled and form is valid');
+    } else {
+      alert('please to complete required fields to save the book');
+    }
   }
 }
