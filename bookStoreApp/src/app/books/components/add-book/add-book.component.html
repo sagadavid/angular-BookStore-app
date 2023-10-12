@@ -6,7 +6,7 @@
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
 </span></mat-icon>
-    <mat-hint>{{bookTitle.valid}}</mat-hint>
+    <mat-hint [hidden]="bookTitle.valid">Please enter a book title</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
     <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required>
