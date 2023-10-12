@@ -24,7 +24,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {
     //default values for template - two way binding
     this.model42WayBinding = new BookModel();
-    this.model42WayBinding.title = 'Default title for the book';
+    // this.model42WayBinding.title = 'Default title for the book';
     this.model42WayBinding.totalPages = 345;
     this.model42WayBinding.price = {
       value: 3,

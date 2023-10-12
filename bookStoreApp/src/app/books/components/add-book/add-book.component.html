@@ -1,12 +1,30 @@
 <p>add-book under books works!</p>
 <p>isFormValid {{myNgForm.valid}}</p>
+<table>
+  <tr>
+    <td>pristine</td>
+    <td>{{bookTitle.pristine}}</td>
+  </tr>
+    <tr>
+    <td>dirty</td>
+    <td>{{bookTitle.dirty}}</td>
+  </tr>
+    <tr>
+    <td>touched</td>
+    <td>{{bookTitle.touched}}</td>
+  </tr>
+    <tr>
+    <td>staus</td>
+    <td>{{bookTitle.status}}</td>
+  </tr>
+</table>
 <form #myNgForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
     <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title" required maxlength="100" #bookTitle="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
 </span></mat-icon>
-    <mat-hint [hidden]="bookTitle.valid">Please enter a book title</mat-hint>
+    <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">Please enter a book title</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
     <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required #bookAuthor="ngModel">
