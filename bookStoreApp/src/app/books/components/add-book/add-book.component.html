@@ -9,17 +9,18 @@ auto_stories
     <mat-hint [hidden]="bookTitle.valid">Please enter a book title</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
-    <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required>
+    <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required #bookAuthor="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 settings_accessibility
 </span></mat-icon>
-    <mat-hint>Hint</mat-hint>
+        <mat-hint [hidden]="bookAuthor.valid">Please enter an author</mat-hint>
+
   </mat-form-field>
     <mat-form-field appearance="fill">
-    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages" required max="1000" min="20">
+    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages" required max="1000" min="20" #bookPages="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">numbers</span>
 </mat-icon>
-    <mat-hint>Hint</mat-hint>
+    <mat-hint [hidden]="bookPages.valid">Pages shld btw 20 and 1000</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="fill">
   <mat-select name="price" placeholder="Price" [(ngModel)]="model42WayBinding.price.value">
@@ -36,9 +37,11 @@ attach_money
   </mat-form-field>
 <mat-form-field>
   <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model42WayBinding.publishedOn" required>
+  <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model42WayBinding.publishedOn" required
+  #bookDate="ngModel">
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
+      <mat-hint [hidden]="bookDate.valid">Please enter publish date</mat-hint>
 </mat-form-field>
 
   <mat-slide-toggle class="slide" name="isPublished" [(ngModel)]="model42WayBinding.isPublished">tag the book as "Published!"</mat-slide-toggle>
