@@ -17,14 +17,22 @@
     <td>staus</td>
     <td>{{bookTitle.status}}</td>
   </tr>
+     <tr>
+    <td>errors</td>
+    <td>{{bookTitle.errors | json}}</td>
+  </tr>
 </table>
 <form #myNgForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
     <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title" required minlength="3" maxlength="40" #bookTitle="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
-</span></mat-icon>
-    <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">Please enter a book title</mat-hint>
+</span>
+</mat-icon>
+    <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">
+      <span *ngIf="bookTitle.errors?.['required']">title is required</span>
+    <span *ngIf="bookTitle.errors?.['minlength']">min length is 3</span>
+    </mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
     <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required #bookAuthor="ngModel">
