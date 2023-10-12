@@ -42,7 +42,7 @@ attach_money
 </mat-form-field>
 
   <mat-slide-toggle class="slide" name="isPublished" [(ngModel)]="model42WayBinding.isPublished">tag the book as "Published!"</mat-slide-toggle>
-  <button type="submit" mat-raised-button color="primary">save the book </button>
+  <button type="submit" mat-raised-button color="primary" [disabled]="myNgForm.invalid">save the book </button>
 
 </form>
 <p>{{myNgForm.value |json}} </p>
