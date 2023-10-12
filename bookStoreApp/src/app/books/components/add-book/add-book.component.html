@@ -2,11 +2,11 @@
 <p>isFormValid {{myNgForm.valid}}</p>
 <form #myNgForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
-    <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title" required>
+    <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title" required maxlength="100" #bookTitle="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
 auto_stories
 </span></mat-icon>
-    <mat-hint>Hint</mat-hint>
+    <mat-hint>{{bookTitle.valid}}</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
     <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required>
@@ -16,9 +16,9 @@ settings_accessibility
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
     <mat-form-field appearance="fill">
-    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages">
-    <mat-icon matSuffix><span class="material-symbols-outlined">
-</span></mat-icon>
+    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages" required max="1000" min="20">
+    <mat-icon matSuffix><span class="material-symbols-outlined">numbers</span>
+</mat-icon>
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="fill">

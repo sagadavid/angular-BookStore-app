@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './public/home/home.component';
 import { TestService } from './shared/services/test.service';
 import { CounterFactory } from './shared/services/counter.factory';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CounterFactory } from './shared/services/counter.factory';
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
     CounterFactory, //useFactory from another file
