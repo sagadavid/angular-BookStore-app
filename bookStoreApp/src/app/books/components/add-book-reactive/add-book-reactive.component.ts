@@ -35,10 +35,6 @@ currencies: any[] = [
       publishedOn: new FormControl(),
       isPublished: new FormControl(),
     });
-
-    this.addBookForm.patchValue({
-      title: "title from patch value, default after initialization"
-    });
   }
 
   ngOnInit(): void {
@@ -55,5 +51,12 @@ currencies: any[] = [
     } else {
       alert('please to complete required fields to save the book');
     }
+  }
+//in a scneario where data need to be updated.. fx after getting from api
+  updateFormValues():void {
+    this.addBookForm.patchValue({
+      title: "title from patch value, default after initialization",
+      author: "author from pathc value, default laterly "
+    });
   }
 }

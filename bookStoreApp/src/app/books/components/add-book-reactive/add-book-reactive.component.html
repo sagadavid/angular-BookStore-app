@@ -1,6 +1,8 @@
 <p>add-book-reactive works!</p>
 <p>add-book under books works!</p>
 
+<button (click)="updateFormValues()">oppdater forme sine verdi</button><span></span><br>
+
 <form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="saveBook()">
 
   <mat-form-field appearance="fill">
