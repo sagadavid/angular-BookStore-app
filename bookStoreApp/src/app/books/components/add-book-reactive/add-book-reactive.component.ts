@@ -24,17 +24,21 @@ currencies: any[] = [
   constructor(private bookService:BookService) {}
 
   private initForm() {
-       this.addBookForm = new FormGroup({
-    title: new FormControl(null, Validators.required),
-    author: new FormControl('ferdinand von schirach', [Validators.required, Validators.minLength(3)]),
-    totalPages: new FormControl(239),
-         price: new FormGroup({
-           currency: new FormControl(),
-           value:new FormControl()
-    }),
-    publishedOn: new FormControl(),
-    isPublished: new FormControl(),
-    })
+    this.addBookForm = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      author: new FormControl('ferdinand von schirach', [Validators.required, Validators.minLength(3)]),
+      totalPages: new FormControl(239),
+      price: new FormGroup({
+        currency: new FormControl(),
+        value: new FormControl()
+      }),
+      publishedOn: new FormControl(),
+      isPublished: new FormControl(),
+    });
+
+    this.addBookForm.patchValue({
+      title: "title from patch value, default after initialization"
+    });
   }
 
   ngOnInit(): void {
