@@ -9,8 +9,14 @@
 <form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="saveBook()">
 
   <mat-form-field appearance="fill">
-    <input matInput name="title" placeholder="title" formControlName="title">
+    <input matInput name="title" placeholder="title" formControlName="title" minlength="3" required>
     <mat-icon matSuffix><span class="material-symbols-outlined">auto_stories</span></mat-icon>
+
+    <mat-hint *ngIf="addBookForm.get('title')?.invalid && addBookForm.get('title')?.touched">
+      <span *ngIf="addBookForm.get('title')?.errors?.['required']">title is required</span>
+      <span *ngIf="addBookForm.get('title')?.errors?.['minlength']">min length is 3</span>
+    </mat-hint>
+
   </mat-form-field>
 
   <mat-form-field appearance="fill">
