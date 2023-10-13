@@ -12,13 +12,16 @@ prices: any[] = [
     { value: 2, viewValue: '200' },
     { value: 3, viewValue: '300' },
 ];
-  public addBookForm: FormGroup = new FormGroup({
+
+  public addBookForm: FormGroup;
+  constructor() {
+    this.addBookForm = new FormGroup({
     title: new FormControl(),
     author: new FormControl(),
     pages: new FormControl(),
     price: new FormControl(),
     publishDate: new FormControl(),
     isPublished: new FormControl(),
-
-  })
+    })
+  }
 }
