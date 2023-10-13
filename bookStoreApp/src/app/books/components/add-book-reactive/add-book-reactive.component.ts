@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { BookService } from 'src/app/shared/services/book.service';
 
 @Component({
   selector: 'app-add-book-reactive',
@@ -15,15 +16,15 @@ prices: any[] = [
 
   public addBookForm: FormGroup;
 
-  constructor() {}
+  constructor(private bookService:BookService) {}
 
   private initForm() {
        this.addBookForm = new FormGroup({
     title: new FormControl(),
     author: new FormControl(),
-    pages: new FormControl(),
+    totalPages: new FormControl(),
     price: new FormControl(),
-    publishDate: new FormControl(),
+    publishedOn: new FormControl(),
     isPublished: new FormControl(),
     })
   }
@@ -37,7 +38,7 @@ prices: any[] = [
   saveBook(): void {
     if (this.addBookForm.valid) {
       console.log(this.addBookForm.value);
-      // this.bookService.addBook(this.addBookForm.value);
+      this.bookService.addBook(this.addBookForm.value);
       alert('book saved, required fields are filled and form is valid');
     } else {
       alert('please to complete required fields to save the book');

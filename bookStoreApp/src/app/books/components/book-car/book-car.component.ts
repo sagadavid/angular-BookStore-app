@@ -15,8 +15,11 @@ export class BookCarComponent {
   }
   set books(books: BookModel[]) {
     books.map((x) => {
-      x.title = 'titt pa.. ' + x.title;
-      x.author = 'skribent ' + x.author;
+      x.title = x.title;
+      x.author = x.author;
+      x.price = x.price;
+      x.isPublished = x.isPublished;
+      x.publishedOn = x.publishedOn
     });
     this._books = books;
   }

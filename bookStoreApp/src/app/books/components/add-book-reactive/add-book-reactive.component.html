@@ -14,20 +14,24 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <input matInput name="pages" placeholder="pages" formControlName="pages">
+    <input matInput name="pages" placeholder="pages"
+      formControlName="totalPages">
     <mat-icon matSuffix><span class="material-symbols-outlined">numbers</span></mat-icon>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-select name="price" placeholder="Price" formControlName="price"></mat-select>
-    <mat-option *ngFor="let price of prices" [value]="price.value">{{price.viewValue}}</mat-option>
+    <mat-select name="price" placeholder="price" formControlName="price.value">
+
+      <mat-option *ngFor="let price of prices" [value]="price.value">{{price.viewValue}}</mat-option>
+    </mat-select>
+
     <mat-icon matSuffix><span class="material-symbols-outlined">attach_money</span></mat-icon>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" name="publishDate"
-      formControlName="publishDate">
+    <input matInput [matDatepicker]="picker" name="publishedOn"
+      formControlName="publishedOn">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

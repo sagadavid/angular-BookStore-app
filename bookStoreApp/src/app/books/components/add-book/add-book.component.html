@@ -5,71 +5,80 @@
     <td>pristine</td>
     <td>{{bookTitle.pristine}}</td>
   </tr>
-    <tr>
+  <tr>
     <td>dirty</td>
     <td>{{bookTitle.dirty}}</td>
   </tr>
-    <tr>
+  <tr>
     <td>touched</td>
     <td>{{bookTitle.touched}}</td>
   </tr>
-    <tr>
+  <tr>
     <td>staus</td>
     <td>{{bookTitle.status}}</td>
   </tr>
-     <tr>
+  <tr>
     <td>errors</td>
     <td>{{bookTitle.errors | json}}</td>
   </tr>
 </table>
 <form #myNgForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
-    <mat-form-field appearance="fill">
-    <input matInput name="title" placeholder="title" [(ngModel)]="model42WayBinding.title" required minlength="3" maxlength="40" #bookTitle="ngModel">
+  <mat-form-field appearance="fill">
+    <input matInput name="title" placeholder="title"
+      [(ngModel)]="model42WayBinding.title" required minlength="3"
+      maxlength="40" #bookTitle="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
-auto_stories
-</span>
-</mat-icon>
+        auto_stories
+      </span>
+    </mat-icon>
     <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">
       <span *ngIf="bookTitle.errors?.['required']">title is required</span>
-    <span *ngIf="bookTitle.errors?.['minlength']">min length is 3</span>
+      <span *ngIf="bookTitle.errors?.['minlength']">min length is 3</span>
     </mat-hint>
   </mat-form-field>
-    <mat-form-field appearance="fill">
-    <input matInput name="author" placeholder="author"  [(ngModel)]="model42WayBinding.author" required #bookAuthor="ngModel">
+  <mat-form-field appearance="fill">
+    <input matInput name="author" placeholder="author"
+      [(ngModel)]="model42WayBinding.author" required #bookAuthor="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">
-settings_accessibility
-</span></mat-icon>
-        <mat-hint [hidden]="bookAuthor.valid">Please enter an author</mat-hint>
+        settings_accessibility
+      </span></mat-icon>
+    <mat-hint [hidden]="bookAuthor.valid">Please enter an author</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <input matInput name="pages" placeholder="pages"  [(ngModel)]="model42WayBinding.totalPages" required max="1000" min="20" #bookPages="ngModel">
+    <input matInput name="pages" placeholder="pages"
+      [(ngModel)]="model42WayBinding.totalPages" required max="1000" min="20"
+      #bookPages="ngModel">
     <mat-icon matSuffix><span class="material-symbols-outlined">numbers</span></mat-icon>
     <mat-hint [hidden]="bookPages.valid">Pages shld btw 20 and 1000</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="fill">
-  <mat-select name="price" placeholder="Price" [(ngModel)]="model42WayBinding.price.value">
-    <mat-option *ngFor="let price of prices" [value]="price.value">
-      {{price.viewValue}}
-    </mat-option>
-  </mat-select>
+    <mat-select name="price" placeholder="Price"
+      [(ngModel)]="model42WayBinding.price.value">
+      <mat-option *ngFor="let price of prices" [value]="price.value">
+        {{price.viewValue}}
+      </mat-option>
+    </mat-select>
     <mat-icon matSuffix>
-<span class="material-symbols-outlined">
-attach_money
-</span>
+      <span class="material-symbols-outlined">
+        attach_money
+      </span>
     </mat-icon>
     <mat-hint>Hint</mat-hint>
   </mat-form-field>
-<mat-form-field>
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model42WayBinding.publishedOn" required
-  #bookDate="ngModel">
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-      <mat-hint [hidden]="bookDate.valid">Please enter publish date</mat-hint>
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" name="publishedOn"
+      [(ngModel)]="model42WayBinding.publishedOn" required
+      #bookDate="ngModel">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-hint [hidden]="bookDate.valid">Please enter publish date</mat-hint>
+  </mat-form-field>
 
-  <mat-slide-toggle class="slide" name="isPublished" [(ngModel)]="model42WayBinding.isPublished">tag the book as "Published!"</mat-slide-toggle>
-  <button type="submit" mat-raised-button color="primary" [disabled]="myNgForm.invalid">save the book </button>
+  <mat-slide-toggle class="slide" name="isPublished"
+    [(ngModel)]="model42WayBinding.isPublished">tag the book as "Published!"</mat-slide-toggle>
+  <button type="submit" mat-raised-button color="primary"
+    [disabled]="myNgForm.invalid">save the book </button>
 
 </form>
 <p>{{myNgForm.value |json}} </p>
