@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from 'src/app/shared/services/book.service';
 
 @Component({
@@ -25,8 +25,8 @@ currencies: any[] = [
 
   private initForm() {
        this.addBookForm = new FormGroup({
-    title: new FormControl('collini saken'),
-    author: new FormControl('ferdinand von schirach'),
+    title: new FormControl(null, Validators.required),
+    author: new FormControl('ferdinand von schirach', Validators.required),
     totalPages: new FormControl(239),
          price: new FormGroup({
            currency: new FormControl(),
