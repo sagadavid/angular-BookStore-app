@@ -1,7 +1,7 @@
 <p>add-book-reactive works!</p>
 <p>add-book under books works!</p>
 
-<form class="add-book-form" [formGroup]="addBookForm">
+<form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="saveBook()">
 
   <mat-form-field appearance="fill">
     <input matInput name="title" placeholder="title" formControlName="title">

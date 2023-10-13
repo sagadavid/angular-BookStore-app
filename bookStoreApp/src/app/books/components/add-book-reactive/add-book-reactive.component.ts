@@ -33,4 +33,14 @@ prices: any[] = [
     //Add 'implements OnInit' to the class.
     this.initForm();
   }
+
+  saveBook(): void {
+    if (this.addBookForm.valid) {
+      console.log(this.addBookForm.value);
+      // this.bookService.addBook(this.addBookForm.value);
+      alert('book saved, required fields are filled and form is valid');
+    } else {
+      alert('please to complete required fields to save the book');
+    }
+  }
 }
