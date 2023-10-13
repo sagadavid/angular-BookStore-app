@@ -26,7 +26,7 @@ currencies: any[] = [
   private initForm() {
        this.addBookForm = new FormGroup({
     title: new FormControl(null, Validators.required),
-    author: new FormControl('ferdinand von schirach', Validators.required),
+    author: new FormControl('ferdinand von schirach', [Validators.required, Validators.minLength(3)]),
     totalPages: new FormControl(239),
          price: new FormGroup({
            currency: new FormControl(),
