@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from 'src/app/shared/services/book.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { BookService } from 'src/app/shared/services/book.service';
   styleUrls: ['./add-book-reactive.component.css']
 })
 export class AddBookReactiveComponent {
+
 prices: any[] = [
     { value: 100, viewValue: 'hundred' },
     { value: 200, viewValue: '2hundred' },
@@ -20,12 +21,13 @@ currencies: any[] = [
     { value: 'EURO', viewValue: 'European Mark' },
 ];
   public addBookForm: FormGroup;
+  public titleErrorMessage: string;
 
   constructor(private bookService:BookService) {}
 
   private initForm() {
     this.addBookForm = new FormGroup({
-      title: new FormControl(null, Validators.required),
+      title: new FormControl(null, [Validators.required, Validators.minLength(7)]),
       author: new FormControl('ferdinand von schirach', [Validators.required, Validators.minLength(3)]),
       totalPages: new FormControl(239),
       price: new FormGroup({
@@ -45,7 +47,8 @@ currencies: any[] = [
 
     const titleControl = this.addBookForm.get('title');
     titleControl?.valueChanges.subscribe(x => {
-      console.log(x);
+      // console.log(x);
+      this.validateTitleControl(titleControl);
     })
   }
 
@@ -64,5 +67,18 @@ currencies: any[] = [
       title: "title from patch value, default after initialization",
       author: "author from pathc value, default laterly "
     });
+  }
+
+  private validateTitleControl(titleControl: AbstractControl) {
+    this.titleErrorMessage = '';
+    if (titleControl.errors && (titleControl.touched || titleControl.dirty))
+    {
+      if (titleControl.errors['required']) {
+        this.titleErrorMessage = 'title is required';
+      } else if (titleControl.errors['minlength']) {
+         this.titleErrorMessage = 'title\'s minimum length is ' + titleControl.errors?.['minLength'].requiredLength;
+      }
+
+      }
   }
 }
