@@ -1,0 +1,39 @@
+<p>add-book-reactive works!</p>
+<p>add-book under books works!</p>
+
+<form #myNgForm="ngForm" class="add-book-form">
+
+  <mat-form-field appearance="fill">
+    <input matInput name="title" placeholder="title">
+    <mat-icon matSuffix><span class="material-symbols-outlined">auto_stories</span></mat-icon>
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <input matInput name="author" placeholder="author">
+    <mat-icon matSuffix><span class="material-symbols-outlined">settings_accessibility</span></mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <input matInput name="pages" placeholder="pages">
+    <mat-icon matSuffix><span class="material-symbols-outlined">numbers</span></mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+  <mat-select name="price" placeholder="Price" ></mat-select>
+  <mat-option *ngFor="let price of prices" [value]="price.value">{{price.viewValue}}</mat-option>
+  <mat-icon matSuffix><span class="material-symbols-outlined">attach_money</span></mat-icon>
+  </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" name="publishedOn" >
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-slide-toggle class="slide" name="isPublished">tag the book as "Published!"</mat-slide-toggle>
+
+<button type="submit" mat-raised-button color="primary" >save the book </button>
+
+</form>
+

@@ -4,11 +4,13 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { RouterModule, Routes } from '@angular/router';
 import { RecentsBooksComponent } from './components/recents-books/recents-books.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { AddBookReactiveComponent } from './components/add-book-reactive/add-book-reactive.component';
 
 const routes: Routes = [
   { path: '', component: AllBooksComponent },
   { path: 'new', component: AddBookComponent },
   { path: 'recent', component: RecentsBooksComponent },
+  { path: 'new-reactive', component: AddBookReactiveComponent },
   {
     path: ':bookId',
     component: BookDetailsComponent,
