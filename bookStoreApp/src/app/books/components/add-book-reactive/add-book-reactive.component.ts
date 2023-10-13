@@ -41,6 +41,12 @@ currencies: any[] = [
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.initForm();
+
+    //get form control values/reference
+    // console.log(this.addBookForm);
+    // console.log(this.addBookForm.controls);
+    // console.log(this.addBookForm.controls['title']);
+    console.log(this.addBookForm.get('title'));
   }
 
   saveBook(): void {
