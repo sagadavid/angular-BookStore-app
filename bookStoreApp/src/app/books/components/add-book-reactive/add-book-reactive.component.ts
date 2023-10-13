@@ -14,8 +14,11 @@ prices: any[] = [
 ];
 
   public addBookForm: FormGroup;
-  constructor() {
-    this.addBookForm = new FormGroup({
+
+  constructor() {}
+
+  private initForm() {
+       this.addBookForm = new FormGroup({
     title: new FormControl(),
     author: new FormControl(),
     pages: new FormControl(),
@@ -23,5 +26,11 @@ prices: any[] = [
     publishDate: new FormControl(),
     isPublished: new FormControl(),
     })
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.initForm();
   }
 }
