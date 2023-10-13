@@ -36,6 +36,10 @@ currencies: any[] = [
       }),
       publishedOn: new FormControl(),
       isPublished: new FormControl(),
+      formatType: new FormControl(),
+      pdfFormat: new FormControl(),
+      docFormat: new FormControl(),
+
     });
   }
 
@@ -49,6 +53,11 @@ currencies: any[] = [
     titleControl?.valueChanges.subscribe(x => {
       // console.log(x);
       this.validateTitleControl(titleControl);
+    })
+
+    const formatTypeControl = this.addBookForm.get('formatType');
+    formatTypeControl?.valueChanges.subscribe(x => {
+      this.formatTypeChanged(x);
     })
   }
 
@@ -75,10 +84,29 @@ currencies: any[] = [
     {
       if (titleControl.errors['required']) {
         this.titleErrorMessage = 'title is required';
-      } else if (titleControl.errors['minlength']) {
+      }
+      else if (titleControl.errors['minlength']) {
          this.titleErrorMessage = 'title\'s minimum length is ' + titleControl.errors?.['minLength'].requiredLength;
       }
 
       }
+  }
+
+  private formatTypeChanged(formatType: string): void {
+
+    const pdfControl = this.addBookForm.get('pdfFormat');
+    const docControl = this.addBookForm.get('docFormat');
+
+    if (formatType === 'pdf') {
+      pdfControl?.addValidators(Validators.required)
+      docControl?.clearValidators();
+    }
+    else if (formatType === 'doc') {
+      docControl?.addValidators(Validators.required)
+      pdfControl?.clearValidators();
+    }
+
+    pdfControl?.updateValueAndValidity();
+    docControl?.updateValueAndValidity();
   }
 }

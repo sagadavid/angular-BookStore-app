@@ -8,6 +8,29 @@
 
 <form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="saveBook()">
 
+<div>
+  <h3>choose which will be required for doc?/pdf?</h3>
+  <p>an example of dynamic validation</p>
+  <mat-radio-group aria-label="Select an option" formControlName="formatType" class="toggle">
+  <mat-radio-button value="doc">DOC</mat-radio-button>
+  <mat-radio-button value="pdf">PDF</mat-radio-button>
+</mat-radio-group>
+</div>
+
+
+  <mat-form-field appearance="fill">
+  <mat-label>doc format</mat-label>
+    <input matInput name="docFormat" placeholder="" formControlName="docFormat" >
+    <mat-icon matSuffix><span class="material-symbols-outlined">auto_stories</span></mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+  <mat-label>pdf format</mat-label>
+    <input matInput name="pdfFormat" placeholder="" formControlName="pdfFormat" >
+    <mat-icon matSuffix><span class="material-symbols-outlined">auto_stories</span></mat-icon>
+  </mat-form-field>
+
+
   <mat-form-field appearance="fill">
     <input matInput name="title" placeholder="title" formControlName="title" required>
     <mat-icon matSuffix><span class="material-symbols-outlined">auto_stories</span></mat-icon>
