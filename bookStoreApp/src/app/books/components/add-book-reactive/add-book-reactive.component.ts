@@ -42,11 +42,11 @@ currencies: any[] = [
     //Add 'implements OnInit' to the class.
     this.initForm();
 
-    //get form control values/reference
-    // console.log(this.addBookForm);
-    // console.log(this.addBookForm.controls);
-    // console.log(this.addBookForm.controls['title']);
-    console.log(this.addBookForm.get('title'));
+
+    const titleControl = this.addBookForm.get('title');
+    titleControl?.valueChanges.subscribe(x => {
+      console.log(x);
+    })
   }
 
   saveBook(): void {
