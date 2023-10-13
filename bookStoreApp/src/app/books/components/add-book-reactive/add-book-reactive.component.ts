@@ -9,11 +9,16 @@ import { BookService } from 'src/app/shared/services/book.service';
 })
 export class AddBookReactiveComponent {
 prices: any[] = [
-    { value: 1, viewValue: '100' },
-    { value: 2, viewValue: '200' },
-    { value: 3, viewValue: '300' },
+    { value: 100, viewValue: 'hundred' },
+    { value: 200, viewValue: '2hundred' },
+    { value: 300, viewValue: '3hundred' },
 ];
 
+currencies: any[] = [
+    { value: 'USD', viewValue: 'American Dollar' },
+    { value: 'NOK', viewValue: 'Norwegian Kroner' },
+    { value: 'EURO', viewValue: 'European Mark' },
+];
   public addBookForm: FormGroup;
 
   constructor(private bookService:BookService) {}
@@ -23,7 +28,10 @@ prices: any[] = [
     title: new FormControl(),
     author: new FormControl(),
     totalPages: new FormControl(),
-    price: new FormControl(),
+         price: new FormGroup({
+           currency: new FormControl(),
+           value:new FormControl()
+    }),
     publishedOn: new FormControl(),
     isPublished: new FormControl(),
     })
