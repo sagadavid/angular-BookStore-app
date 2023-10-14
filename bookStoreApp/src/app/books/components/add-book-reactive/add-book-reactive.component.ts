@@ -43,7 +43,7 @@ currencies: any[] = [
       formatType: '',
       pdfFormat: '',
       docFormat: '',
-      authors: this.formBuilder.array([this.getAuthorControl()]),
+      authors: this.formBuilder.array([this.getAuthorControl() ]),
 
     });
   }
@@ -120,4 +120,10 @@ currencies: any[] = [
      authorFullName: ''
     })
   }
+
+  public addAuthor() {
+    this.authors.push(this.getAuthorControl());
+
+  }
+
 }
