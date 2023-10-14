@@ -45,8 +45,9 @@
     <input matInput name="author" placeholder="authors fullName" formControlName="authorFullName">
     <mat-icon matSuffix><span class="material-symbols-outlined">settings_accessibility</span></mat-icon>
   </mat-form-field>
+  <button mat-button (click)="removeAuthor(i)">remove author</button>
    </div>
-<button (click)="addAuthor()">add more author</button><br><br>
+<button mat-button (click)="addAuthor()">add more author</button><br><br>
   </div>
 
   <mat-form-field appearance="fill">

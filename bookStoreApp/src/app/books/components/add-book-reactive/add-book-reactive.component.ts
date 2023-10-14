@@ -123,7 +123,10 @@ currencies: any[] = [
 
   public addAuthor() {
     this.authors.push(this.getAuthorControl());
+  }
 
+  public removeAuthor(i:number) {
+    this.authors.removeAt(i)
   }
 
 }
