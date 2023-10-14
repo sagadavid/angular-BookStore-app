@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookService } from 'src/app/shared/services/book.service';
 
 @Component({
@@ -23,12 +23,16 @@ currencies: any[] = [
   public addBookForm: FormGroup;
   public titleErrorMessage: string;
 
+  public get authors() {
+    return <FormArray> this.addBookForm.get('authors')
+  }
+
   constructor(private bookService:BookService, private formBuilder:FormBuilder) {}
 
   private initForm():void {
     this.addBookForm = this.formBuilder.group({
       title: ['default title from formBuilder version', [Validators.minLength(4), Validators.required]],
-      author: '',
+      // author: '',
       totalPages: '',
       price: this.formBuilder.group({
         currency: '',
@@ -39,6 +43,7 @@ currencies: any[] = [
       formatType: '',
       pdfFormat: '',
       docFormat: '',
+      authors: this.formBuilder.array([this.getAuthorControl()]),
 
     });
   }
@@ -108,5 +113,11 @@ currencies: any[] = [
 
     pdfControl?.updateValueAndValidity();
     docControl?.updateValueAndValidity();
+  }
+
+  private getAuthorControl():FormGroup {
+    return this.formBuilder.group({
+     authorFullName: ''
+    })
   }
 }

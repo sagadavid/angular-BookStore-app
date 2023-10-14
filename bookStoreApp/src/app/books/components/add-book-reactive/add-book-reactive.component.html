@@ -39,10 +39,14 @@
 
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <input matInput name="author" placeholder="author" formControlName="author">
+ <div formArrayName="authors">
+   <div *ngFor="let author of authors.controls; let i = index">
+    <mat-form-field appearance="fill" [formGroupName]="i">
+    <input matInput name="author" placeholder="authors fullName" formControlName="authorFullName">
     <mat-icon matSuffix><span class="material-symbols-outlined">settings_accessibility</span></mat-icon>
   </mat-form-field>
+   </div>
+ </div>
 
   <mat-form-field appearance="fill">
     <input matInput name="pages" placeholder="pages"
