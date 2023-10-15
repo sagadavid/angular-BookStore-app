@@ -3,7 +3,7 @@
 <div class="container">
   <mat-card class="book-card" *ngFor="let book of books">
     <mat-card-header>
-      <mat-card-title>{{book.title}}</mat-card-title>
+      <mat-card-title>{{book.title | titlecase}}</mat-card-title>
     </mat-card-header>
     <img mat-card-image
       src="https://material.angular.io/assets/img/examples/shiba2.jpg"
@@ -18,9 +18,9 @@
       <p>
         Price:{{book.price.value +' '+ book.price.currency}}
       </p>
-      <p>is the book published? : {{book.isPublished ? 'Yes' : 'No'}}</p>
+      <!-- <p>is the book published? : {{book.isPublished ? 'Yes' : 'No'}}</p> -->
       <p>is the book published? : {{book.isPublished | json}}</p>
-      <p>Book published on: {{book.publishedOn | date}}</p>
+      <p>Book published on: {{book.publishedOn | date }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Details</button>
