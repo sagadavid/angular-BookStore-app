@@ -17,6 +17,7 @@ export class BookService {
         currency: 'Euro',
         value: 50,
       },
+      isPublished: true,
     },
     {
       id: 2,
@@ -27,6 +28,8 @@ export class BookService {
         currency: 'Nok',
         value: 1200,
       },
+      isPublished: true,
+
     },
     {
       id: 3,
@@ -37,6 +40,8 @@ export class BookService {
         currency: 'Nok',
         value: 1000,
       },
+      isPublished: false,
+
     },
   ];
 
@@ -60,6 +65,8 @@ export class BookService {
           currency: 'Nok',
           value: 1200,
         },
+        isPublished: true,
+
       },
       {
         id: 3,
@@ -70,6 +77,8 @@ export class BookService {
           currency: 'Nok',
           value: 1000,
         },
+         isPublished: true,
+
       },
     ];
   }

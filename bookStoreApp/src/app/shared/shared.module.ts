@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorAddressComponent } from './components/author-address/author-address.component';
+import { BoolformatPipe } from './pipes/boolformat.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AuthorAddressComponent } from './components/author-address/author-addre
     AuthorsComponent,
     AuthorAddressComponent,
     AuthorAddressComponent,
+    BoolformatPipe,
   ],
   imports: [CommonModule, MaterialModule, RouterModule],
   exports: [
@@ -26,6 +28,7 @@ import { AuthorAddressComponent } from './components/author-address/author-addre
     AuthorsComponent,
     AuthorAddressComponent,
     MaterialModule,
+    BoolformatPipe
   ], //others need to reach card module aswell
 })
 export class SharedModule {}
