@@ -9,9 +9,9 @@ import { HomeComponent } from './public/home/home.component';
 import { BooksComponent } from './books/books.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'how-it-works', component: HowItWorksComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full', title:'velkommen til bookstore appen' },
+  { path: 'about-us', component: AboutUsComponent, title : 'om oss'},
+  { path: 'how-it-works', component: HowItWorksComponent, title:'om hvordan det funker'},
   {
     path: 'auth',
     component: AuthComponent,
