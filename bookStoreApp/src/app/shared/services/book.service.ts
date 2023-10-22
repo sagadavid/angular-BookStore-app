@@ -9,11 +9,14 @@ import { Observable } from 'rxjs/internal/Observable';
 export class BookService {
   constructor(private httpKlient: HttpClient) {}
 
-  public addBook(bookModel: BookModel) {
+  public addBook(bookModel: BookModel) : Observable <BookModel> {
+     return this.httpKlient.post<BookModel>('https://localhost:7091/api/Books', bookModel);
   }
 
   public getBooks(): Observable <BookModel[]> {
    return this.httpKlient.get<BookModel[]>('https://localhost:7091/api/Books');
   }
+
+
 
 }

@@ -1,10 +1,10 @@
 <p>add-book-reactive works!</p>
 <p>add-book under books works!</p>
 
-<button (click)="updateFormValues()">oppdater forme sine verdi</button><span></span><br>
-<p>show value of title element of the reactive form : {{this.addBookForm.get('title')?.value}}</p>
+<!-- <button (click)="updateFormValues()">oppdater forme sine verdi</button><span></span><br> -->
+<!-- <p>show value of title element of the reactive form : {{this.addBookForm.get('title')?.value}}</p>
 <p>show status of title element of the reactive form : {{this.addBookForm.get('title')?.valid}}</p>
-<p>show errors of title element of the reactive form : {{this.addBookForm.get('title')?.errors|json}}</p>
+<p>show errors of title element of the reactive form : {{this.addBookForm.get('title')?.errors|json}}</p> -->
 
 <form class="add-book-form" [formGroup]="addBookForm" (ngSubmit)="saveBook()">
 
@@ -43,6 +43,10 @@
    <div *ngFor="let author of authors.controls; let i = index">
     <mat-form-field appearance="fill" [formGroupName]="i">
     <input matInput name="author" placeholder="authors fullName" formControlName="authorFullName">
+    <mat-icon matSuffix><span class="material-symbols-outlined">settings_accessibility</span></mat-icon>
+  </mat-form-field>
+    <mat-form-field appearance="fill" [formGroupName]="i">
+    <input matInput name="address" placeholder="authors country" formControlName="authorAddress">
     <mat-icon matSuffix><span class="material-symbols-outlined">settings_accessibility</span></mat-icon>
   </mat-form-field>
   <button mat-button (click)="removeAuthor(i)">remove author</button>
@@ -96,4 +100,4 @@
 
 </form>
 
-{{addBookForm.value | json}}
+<!-- {{addBookForm.value | json}} -->

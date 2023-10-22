@@ -68,20 +68,23 @@ currencies: any[] = [
 
   saveBook(): void {
     if (this.addBookForm.valid) {
-      console.log(this.addBookForm.value);
-      this.bookService.addBook(this.addBookForm.value);
+      // console.log(this.addBookForm.value);
+      this.bookService.addBook(this.addBookForm.value)
+        .subscribe(x => {
+          console.log(x);
+        });
       alert('book saved, required fields are filled and form is valid');
     } else {
       alert('please to complete required fields to save the book');
     }
   }
-//in a scneario where data need to be updated.. fx after getting from api
-  updateFormValues():void {
-    this.addBookForm.patchValue({
-      title: "title from patch value, default after initialization",
-      author: "author from pathc value, default laterly "
-    });
-  }
+// //in a scneario where data need to be updated.. fx after getting from api
+//   updateFormValues():void {
+//     this.addBookForm.patchValue({
+//       title: "title from patch value, default after initialization",
+//       author: "author from pathc value, default laterly "
+//     });
+//   }
 
   private validateTitleControl(titleControl: AbstractControl) {
     this.titleErrorMessage = '';
@@ -117,7 +120,8 @@ currencies: any[] = [
 
   private getAuthorControl():FormGroup {
     return this.formBuilder.group({
-     authorFullName: ''
+      authorFullName: '',
+      authorAddress:''
     })
   }
 
