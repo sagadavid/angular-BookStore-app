@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorAddressComponent } from './components/author-address/author-address.component';
 import { BoolformatPipe } from './pipes/boolformat.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { BoolformatPipe } from './pipes/boolformat.pipe';
     AuthorAddressComponent,
     BoolformatPipe,
   ],
-  imports: [CommonModule, MaterialModule, RouterModule],
+  imports: [CommonModule, MaterialModule, RouterModule, HttpClientModule],
   exports: [
     ToolbarComponent,
     FooterComponent,
@@ -28,7 +29,8 @@ import { BoolformatPipe } from './pipes/boolformat.pipe';
     AuthorsComponent,
     AuthorAddressComponent,
     MaterialModule,
-    BoolformatPipe
+    BoolformatPipe,
+    HttpClientModule
   ], //others need to reach card module aswell
 })
 export class SharedModule {}

@@ -16,6 +16,6 @@ export class RecentsBooksComponent implements OnInit {
     this.getRecentBooks();
   }
   private getRecentBooks(): void {
-    this.recents = this._bookService.getRecentBooks();
+    //this.recents = this._bookService.getRecentBooks();
   }
 }
