@@ -10,7 +10,11 @@
       alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
-        Author:{{book.author}}
+        Authors:<span *ngFor="let au of book.authors">
+          {{au.address}},
+          {{au.fullName}}
+        </span>
+
       </p>
       <p>
         Pages:{{book.totalPages}}

@@ -10,34 +10,16 @@ import { Counter2Service } from 'src/app/shared/services/counter2.service';
 })
 export class AllBooksComponent implements OnInit {
   public books: BookModel[] = [];
+
   constructor(
     public bookService: BookService,
     public countr2Service: Counter2Service
   ) {}
 
-  public increase(): void {
-    this.countr2Service.incCount();
-  }
-  public decrease(): void {
-    this.countr2Service.decCount();
-  }
-
   ngOnInit(): void {
-    //to be able to dynamically work on it, hardcoded data should fit in BookModel -Class-.. so that we can use getter setter on it.
+    this.pagetitle='All the books on the market'
+    this.getAllBooks();
 
-    const alleBooks = this.bookService.getBooks();
-    // alleBooks.forEach((b) => {
-    //   var bokModel = new BookModel();
-    //   bokModel.id = b.id;
-    //   bokModel.author = b.author;
-    //   bokModel.title = b.title;
-    //   bokModel.totalPages = b.totalPages;
-    //   bokModel.price = b.price;
-    //   bokModel.isPublished = b.isPublished;
-    //   bokModel.publishedOn = b.publishedOn;
-    //   this.books.push(bokModel);
-    // });
-    this.pagetitle = 'ALL WE HAVE IN THE STORE : ';
   }
 
   //getter setter in component
@@ -48,5 +30,19 @@ export class AllBooksComponent implements OnInit {
   }
   public get pagetitle() {
     return this._pagetitle;
+  }
+
+    public increase(): void {
+    this.countr2Service.incCount();
+  }
+  public decrease(): void {
+    this.countr2Service.decCount();
+  }
+
+  private getAllBooks(): void {
+    this.bookService.getBooks()
+      .subscribe(subsBooks => {
+        this.books = subsBooks;
+      })
   }
 }
